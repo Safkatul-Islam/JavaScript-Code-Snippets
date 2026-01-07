@@ -1,20 +1,19 @@
 function createBankAccount(initialBalance) {
-    let balance = initialBalance;
+  let balance = initialBalance;
 
-    return {
-        deposit: (amount) => {
-            balance += amount;
-            return `Deposited: ${amount}. New Balance: ${balance}`;
-        },
-        withdraw: (amount) => {
-            if(balance >= amount) {
-                balance -= amount;
-                return `Withdrew: ${amount} New Balance: ${balance}`;
-            }
-            return "Insufficient funds";
-        }
-
-    }
+  return {
+    deposit: (amount) => {
+      balance += amount;
+      return `Deposited: ${amount}. New Balance: ${balance}`;
+    },
+    withdraw: (amount) => {
+      if (balance >= amount) {
+        balance -= amount;
+        return `Withdrew: ${amount} New Balance: ${balance}`;
+      }
+      return "Insufficient funds";
+    },
+  };
 }
 
 const myAccount = createBankAccount(100);
