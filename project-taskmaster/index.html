@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TaskMaster Pro</h1>
+    <form id="add-task">
+        <input type="text" id="tasks" placeholder="Enter the task">
+        <select id="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <button id="save-task">Add Task</button>
+    </form>
+    <div id="board">
+        <div id="todo">
+            <h3>ToDo</h3>
+            <div class="task-list" id="todo-list"></div>
+        </div>
+        <div id="doing">
+            <h3>Doing Right Now</h3>
+            <div class="task-list" id="doing-list"></div>
+        </div>
+        <div id="done">
+            <h3>Done</h3>
+            <div class="task-list" id="done-list"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
