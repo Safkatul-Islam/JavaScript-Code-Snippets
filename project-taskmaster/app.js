@@ -1,3 +1,5 @@
+let draggedItem = null;
+
 let state = {
   todo: [],
   doing: [],
@@ -40,7 +42,7 @@ function renderTasks() {
             div.className = "task-card";
             div.draggable = true;
             div.id = task.id;
-            div.innerText= `${task.text} (priority: ${task.priority})`;
+            div.innerText= `${task.text} (Priority: ${task.priority})`;
 
             list.appendChild(div);
         });
