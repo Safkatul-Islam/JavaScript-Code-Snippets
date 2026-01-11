@@ -29,41 +29,20 @@ form.addEventListener("submit", (e) => {
 });
 
 function renderTasks() {
-  // clear all three tasks
-  document.querySelector("#todo-list").innerHTML = "";
-  document.querySelector("#doing-list").innerHTML = "";
-  document.querySelector("#done-list").innerHTML = "";
+  
+    // loop through the keys of the state or object
+    Object.keys(state).forEach((column) => {        // Column is just a variable holding the key name so state[column] is actually the array itself like state.todo or state.doing so yes it gives the array.
+        const list = document.querySelector(`#${column}-list`);
+        list.innerHTML = "";
 
-  // render todo task
-  state.todo.forEach((task) => {
-    const div = document.createElement("div");
-    div.className = "task-card";
-    div.draggable = true;
-    div.id = task.id;
-    div.innerText = `${task.text} (priority: ${task.priority})`;
+        state[column].forEach((task) => {
+            const div = document.createElement('div');
+            div.className = "task-card";
+            div.draggable = true;
+            div.id = task.id;
+            div.innerText= `${task.text} (priority: ${task.priority})`;
 
-    document.querySelector("#todo-list").appendChild(div);
-  });
-
-  // render doing task
-  state.doing.forEach((task) => {
-    const div = document.createElement("div");
-    div.className = "task-card";
-    div.draggable = true;
-    div.id = task.id;
-    div.innerText = `${task.text} (priority: ${task.priority})`;
-
-    document.querySelector("#doing-list").appendChild(div);
-  });
-
-  // render done task
-  state.done.forEach((task) => {
-    const div = document.createElement("div");
-    div.className = "task-card";
-    div.draggable = true;
-    div.id = task.id;
-    div.innerText = `${task.text} (priority: ${task.priority})`;
-
-    document.querySelector("#done-list").appendChild(div);
-  });
+            list.appendChild(div);
+        });
+    });
 }
