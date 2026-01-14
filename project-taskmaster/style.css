@@ -71,3 +71,8 @@ h3 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: move;
 }
+
+.highlight-zone {
+    background: linear-gradient(to bottom, #a8c0ff, #c0d0ff) !important;
+    transition: background 0.2s;
+}

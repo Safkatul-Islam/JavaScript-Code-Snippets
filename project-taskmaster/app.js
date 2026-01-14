@@ -1,11 +1,23 @@
 let draggedItem = null;
 let sourceColumn = null;
 
+// Load the data
+const storedData = localStorage.getItem("taskMaster");
+
 let state = {
   todo: [],
   doing: [],
   done: [],
 };
+
+// If data exists, load it into state
+if (storedData) {
+  state = JSON.parse(storedData);
+}
+
+function saveToStorage() {
+  localStorage.setItem("taskMaster", JSON.stringify(state));
+}
 
 const form = document.querySelector("#add-task");
 const text = document.querySelector("#tasks");
@@ -29,6 +41,8 @@ form.addEventListener("submit", (e) => {
   priority.value = "low";
 
   renderTasks();
+
+  saveToStorage();
 });
 
 function renderTasks() {
@@ -95,8 +109,12 @@ function setupDropZones() {
       sourceColumn = null;
 
       renderTasks();
+
+      saveToStorage();
     });
   });
 }
 
 setupDropZones();
+
+renderTasks();
